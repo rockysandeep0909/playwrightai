@@ -9,3 +9,5 @@ a=b;
 b=c;    
 
 console.log("After swapping a is", a, "b is", b);
+
+
