@@ -1,0 +1,6 @@
+function addtwonumbers(){
+    let a= 10;
+    let b= 20;
+    let sum= a+b;
+    console.log("Sum of two numbers is", sum);
+}
