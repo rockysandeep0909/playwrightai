@@ -143,7 +143,7 @@ test("Visual testing in playwright page" ,  async ({page})=>{
 
 // handle alerts in playwright 
 
-test.only('Hanlding simple alert in playwright ', async ({page})=>{
+test('Hanlding simple alert in playwright ', async ({page})=>{
 
      await page.goto("https://the-internet.herokuapp.com/javascript_alerts");
      
@@ -152,7 +152,105 @@ test.only('Hanlding simple alert in playwright ', async ({page})=>{
           await dialog.accept();
      })
 
-     await page.locator("//button[text()='Click for JS Alert']").click();
+     //await page.locator("//button[text()='Click for JS Alert']").click();
+     await page.locator("//button[text()='Click for JS Confirm']").click();
 
      await page.waitForTimeout(5000);
 })
+
+
+test('Handling confirm box --- dismiss ', async ({page})=>{
+
+     await page.goto("https://the-internet.herokuapp.com/javascript_alerts");
+     
+     
+     page.on('dialog', async dialog=>{
+          await dialog.dismiss();
+     })
+
+     //await page.locator("//button[text()='Click for JS Alert']").click();
+     await page.locator("//button[text()='Click for JS Confirm']").click();
+
+     await page.waitForTimeout(5000);
+})
+
+
+test('Handling confirm box --- prompt alert ', async ({page})=>{
+
+     await page.goto("https://the-internet.herokuapp.com/javascript_alerts");
+     
+     
+     
+
+     //await page.locator("//button[text()='Click for JS Alert']").click();
+     await page.locator("//button[text()='Click for JS Prompt']").click();
+
+
+     page.on('dialog', async dialog=>{
+          await dialog.accept("This is my input");
+     })
+
+
+   
+
+     await page.waitForTimeout(5000);
+})
+
+//handling webtables in playwright
+
+test('Handling webtables in playwright ', async ({page})=>{
+     await page.goto("https://www.w3schools.com/html/html_tables.asp");
+     await page.waitForTimeout(3000);
+     let rows=await page.locator("//table[@id='customers']//tr");
+     console.log("Total number of rows in the table are : "+await rows.count());
+
+     for(let i=0;i<await rows.count();i++){
+          let rowText=await rows.nth(i).textContent();
+          console.log(rowText);
+     }
+})
+
+
+// handling iframes in playwright
+
+test('Handling iframes in playwright ', async ({page})=>{
+     await page.goto("https://www.w3schools.com/html/html_iframe.asp");
+     await page.waitForTimeout(3000);
+     //await page.pause();
+     const iframe=page.frameLocator("//iframe[@title='W3Schools HTML Tutorial']");
+     await iframe.locator("//span[text()='Sign In']").click();
+     page.locator("//span[text()='Sign In']").click();
+     await page.waitForTimeout(3000);
+
+
+})
+
+
+test("Keyboard events" ,  async ({page})=>{
+
+     await page.goto("https://www.saucedemo.com/");
+     await expect(page).toHaveTitle("Swag Labs");
+     
+     await page.locator("//input[@placeholder='Username']").fill("standard_user");
+     await page.keyboard.press("Tab");
+     await page.locator("//input[@placeholder='Password']").fill("secret_sauce");
+     await page.keyboard.press("Backspace");
+     await page.keyboard.press("Enter");
+     await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html");
+
+})
+
+
+test("auto suggestive dropdown" ,  async ({page})=>{
+
+     await page.goto("https://www.wikipedia.org/");
+     const searchBox=await page.locator("//input[@id='searchInput']");
+     await searchBox.fill("Playwright");
+     await page.waitForTimeout(3000);
+
+     const suggestions=await page.locator("//div[@class='suggestions-dropdown']/a");
+     const count=await suggestions.count();
+     console.log("Total number of suggestions are : "+count);
+
+})
+     
