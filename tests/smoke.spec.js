@@ -242,7 +242,7 @@ test("Keyboard events" ,  async ({page})=>{
 })
 
 
-test.only("auto suggestive dropdown" ,  async ({page})=>{
+test("auto suggestive dropdown" ,  async ({page})=>{
 
      await page.goto("https://www.wikipedia.org/");
      const searchBox=await page.locator("//input[@id='searchInput']");
@@ -259,7 +259,7 @@ test.only("auto suggestive dropdown" ,  async ({page})=>{
           console.log(actualtext);
 
           if(actualtext==expectedText){
-               await suggestions.nth(i).click();
+               await suggestions.click();
                break;
           }
      }
@@ -268,4 +268,20 @@ test.only("auto suggestive dropdown" ,  async ({page})=>{
      await page.locator("//span[normalize-space()='Further reading']").click();
      await page.waitForTimeout(3000);
 })
-     
+
+
+test.only("Handling scroll down in playwright" ,  async ({page})=>{
+
+     await page.goto("https://www.saucedemo.com/");
+     await expect(page).toHaveTitle("Swag Labs");
+     await page.locator("//input[@placeholder='Username']").fill("standard_user");
+     await expect(page.locator("//input[@placeholder='Username']")).toHaveValue("standard_user");
+     await page.locator("//input[@placeholder='Password']").fill("secret_sauce");
+     await page.locator("//input[@id='login-button']").click();
+     await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html");
+     await page.waitForTimeout(3000);
+     await page.evaluate(()=>window.scrollBy(0,600));
+     await page.waitForTimeout(3000);
+     await page.evaluate(()=>window.scrollBy(0,-300));
+     await page.waitForTimeout(3000);
+})
