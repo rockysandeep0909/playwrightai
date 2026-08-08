@@ -202,6 +202,7 @@ test('Handling webtables in playwright ', async ({page})=>{
      await page.goto("https://www.w3schools.com/html/html_tables.asp");
      await page.waitForTimeout(3000);
      let rows=await page.locator("//table[@id='customers']//tr");
+     
      console.log("Total number of rows in the table are : "+await rows.count());
 
      for(let i=0;i<await rows.count();i++){
@@ -241,7 +242,7 @@ test("Keyboard events" ,  async ({page})=>{
 })
 
 
-test("auto suggestive dropdown" ,  async ({page})=>{
+test.only("auto suggestive dropdown" ,  async ({page})=>{
 
      await page.goto("https://www.wikipedia.org/");
      const searchBox=await page.locator("//input[@id='searchInput']");
@@ -250,7 +251,21 @@ test("auto suggestive dropdown" ,  async ({page})=>{
 
      const suggestions=await page.locator("//div[@class='suggestions-dropdown']/a");
      const count=await suggestions.count();
+     const expectedText="Playwright (software)End-to-end testing framework"
      console.log("Total number of suggestions are : "+count);
 
+     for(let i=0;i<count;i++){
+          const actualtext=await suggestions.nth(i).textContent();
+          console.log(actualtext);
+
+          if(actualtext==expectedText){
+               await suggestions.nth(i).click();
+               break;
+          }
+     }
+
+     await page.waitForTimeout(3000);
+     await page.locator("//span[normalize-space()='Further reading']").click();
+     await page.waitForTimeout(3000);
 })
      
