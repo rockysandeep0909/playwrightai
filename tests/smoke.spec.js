@@ -1,6 +1,6 @@
 import {test,expect} from '@playwright/test';
 
-test("Our first playwright test" ,  async ({page})=>{
+test("TC 01: Our first playwright test" ,  async ({page})=>{
 
      await page.goto("https://www.saucedemo.com/");
      await expect(page).toHaveTitle("Swag Labs");
@@ -25,7 +25,7 @@ test("Our first playwright test" ,  async ({page})=>{
 })
 
 
-test("@smoke Dropdown validation in saucedemo website" ,  async ({page})=>{
+test("TC 02: Dropdown validation in saucedemo website" ,  async ({page})=>{
 
      await page.goto("https://www.saucedemo.com/");
      await expect(page).toHaveTitle("Swag Labs");
@@ -54,7 +54,7 @@ test("@smoke Dropdown validation in saucedemo website" ,  async ({page})=>{
 })
 
 
-test("Navigation methods in paytm website" ,  async ({page})=>{
+test("TC 03: Navigation methods in paytm website" ,  async ({page})=>{
 
      await page.goto("https://playwright.dev/");
      await page.locator("//a[@class='getStarted_Sjon']").click();
@@ -79,7 +79,7 @@ test("Navigation methods in paytm website" ,  async ({page})=>{
 // })
 
 
-test("test run using browser fixuture" ,  async ({browser})=>{
+test("TC 04: test run using browser fixuture" ,  async ({browser})=>{
      const context=await browser.newContext();
      const page =await context.newPage();
      await page.goto("https://www.saucedemo.com/");
@@ -105,7 +105,7 @@ test("test run using browser fixuture" ,  async ({browser})=>{
 })
 
 
-test('File upload', async ({page})=>{
+test("TC 05: File upload", async ({page})=>{
 
     await page.goto("https://the-internet.herokuapp.com/upload");
     await page.locator("//input[@id='file-upload']").setInputFiles("testdata/sample.txt");
@@ -123,7 +123,7 @@ test('File upload', async ({page})=>{
 
 //visual testing 
 
-test("Visual testing in instagram" ,  async ({page})=>{
+test("TC 06: Visual testing in instagram" ,  async ({page})=>{
      await page.goto("https://www.instagram.com/");
      await expect(page).toHaveTitle("Instagram");
      await page.waitForTimeout(3000);
@@ -132,7 +132,7 @@ test("Visual testing in instagram" ,  async ({page})=>{
 })
 
 
-test("Visual testing in playwright page" ,  async ({page})=>{
+test("TC 07: Visual testing in playwright page" ,  async ({page})=>{
      await page.goto("https://playwright.dev/");
      
      await page.waitForTimeout(3000);
@@ -143,7 +143,7 @@ test("Visual testing in playwright page" ,  async ({page})=>{
 
 // handle alerts in playwright 
 
-test('Hanlding simple alert in playwright ', async ({page})=>{
+test("TC 08: Hanlding simple alert in playwright ", async ({page})=>{
 
      await page.goto("https://the-internet.herokuapp.com/javascript_alerts");
      
@@ -159,7 +159,7 @@ test('Hanlding simple alert in playwright ', async ({page})=>{
 })
 
 
-test('Handling confirm box --- dismiss ', async ({page})=>{
+test("TC 09: Handling confirm box --- dismiss ", async ({page})=>{
 
      await page.goto("https://the-internet.herokuapp.com/javascript_alerts");
      
@@ -175,7 +175,7 @@ test('Handling confirm box --- dismiss ', async ({page})=>{
 })
 
 
-test('Handling confirm box --- prompt alert ', async ({page})=>{
+test("TC 10: Handling confirm box --- prompt alert ", async ({page})=>{
 
      await page.goto("https://the-internet.herokuapp.com/javascript_alerts");
      
@@ -198,7 +198,7 @@ test('Handling confirm box --- prompt alert ', async ({page})=>{
 
 //handling webtables in playwright
 
-test('Handling webtables in playwright ', async ({page})=>{
+test("TC 11: Handling webtables in playwright ", async ({page})=>{
      await page.goto("https://www.w3schools.com/html/html_tables.asp");
      await page.waitForTimeout(3000);
      let rows=await page.locator("//table[@id='customers']//tr");
@@ -214,7 +214,7 @@ test('Handling webtables in playwright ', async ({page})=>{
 
 // handling iframes in playwright
 
-test('Handling iframes in playwright ', async ({page})=>{
+test("TC 12: Handling iframes in playwright ", async ({page})=>{
      await page.goto("https://www.w3schools.com/html/html_iframe.asp");
      await page.waitForTimeout(3000);
      //await page.pause();
@@ -227,7 +227,7 @@ test('Handling iframes in playwright ', async ({page})=>{
 })
 
 
-test("Keyboard events" ,  async ({page})=>{
+test("TC 13: Keyboard events" ,  async ({page})=>{
 
      await page.goto("https://www.saucedemo.com/");
      await expect(page).toHaveTitle("Swag Labs");
@@ -237,12 +237,12 @@ test("Keyboard events" ,  async ({page})=>{
      await page.locator("//input[@placeholder='Password']").fill("secret_sauce");
      await page.keyboard.press("Backspace");
      await page.keyboard.press("Enter");
-     await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html");
+     await expect(page).toHaveURL("https://www.saucedemo.com/iventory.html");
 
 })
 
 
-test("auto suggestive dropdown" ,  async ({page})=>{
+test("TC 14: auto suggestive dropdown" ,  async ({page})=>{
 
      await page.goto("https://www.wikipedia.org/");
      const searchBox=await page.locator("//input[@id='searchInput']");
@@ -259,7 +259,7 @@ test("auto suggestive dropdown" ,  async ({page})=>{
           console.log(actualtext);
 
           if(actualtext==expectedText){
-               await suggestions.click();
+               await suggestions.nth(i).click();
                break;
           }
      }
@@ -270,14 +270,14 @@ test("auto suggestive dropdown" ,  async ({page})=>{
 })
 
 
-test.only("Handling scroll down in playwright" ,  async ({page})=>{
+test("TC 15: Handling scroll down in playwright and using css selectors" ,  async ({page})=>{
 
      await page.goto("https://www.saucedemo.com/");
      await expect(page).toHaveTitle("Swag Labs");
-     await page.locator("//input[@placeholder='Username']").fill("standard_user");
+     await page.locator("#user-name").fill("standard_user");
      await expect(page.locator("//input[@placeholder='Username']")).toHaveValue("standard_user");
-     await page.locator("//input[@placeholder='Password']").fill("secret_sauce");
-     await page.locator("//input[@id='login-button']").click();
+     await page.locator("#password").fill("secret_sauce");
+     await page.locator(".submit-button").click();
      await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html");
      await page.waitForTimeout(3000);
      await page.evaluate(()=>window.scrollBy(0,600));
@@ -285,3 +285,88 @@ test.only("Handling scroll down in playwright" ,  async ({page})=>{
      await page.evaluate(()=>window.scrollBy(0,-300));
      await page.waitForTimeout(3000);
 })
+
+test("TC 16: Horizontal scroll from left to right" ,  async ({page})=>{
+
+     await page.goto("data:text/html,<html><body style='margin:0'><div style='width:2000px;height:200px;background:linear-gradient(to right, red, blue);'></div></body></html>");
+     await page.waitForTimeout(1000);
+     await page.evaluate(() => window.scrollTo(0, 0));
+     await page.waitForTimeout(1000);
+     await page.evaluate(() => window.scrollBy(800, 0));
+     await page.waitForTimeout(1000);
+     await expect(await page.evaluate(() => window.scrollX)).toBeGreaterThan(0);
+
+})
+
+
+
+test("TC 17: mouse hover" ,  async ({page})=>{
+
+     await page.goto("https://paytm.com/");
+     await page.locator("//body/div[@id='app']/header/div[@class='_3aL54']/ul[@class='_2o4VV']/li[4]").hover();
+     await page.waitForTimeout(3000);
+
+})
+
+
+test("http authentication " ,  async ({browser})=>{
+
+     const context=await browser.newContext({
+          httpCredentials:{
+               username:'admin',
+               password:'admin'
+          }
+     });
+     const page =await context.newPage();
+
+
+     await page.goto("https://the-internet.herokuapp.com/basic_auth");
+     await page.waitForTimeout(3000);
+
+     });
+
+
+     test("Multiple tabs handling" ,  async ({browser})=>{
+
+          const context=await browser.newContext();
+          const page=await context.newPage();
+
+          await page.goto("https://paytm.com/");
+          await page.locator("//body/div[@id='app']/header/div[@class='_3aL54']/ul[@class='_2o4VV']/li[1]").hover();
+          await page.waitForTimeout(3000);
+        
+          const waterBillLink=await page.locator("//a[normalize-space()='Water bill']");
+              const [newPage]=   await Promise.all([
+                    
+                    context.waitForEvent('page'),
+                     waterBillLink.click(),
+
+                     //context.waitForEvent('page')  → returns the new Page object
+                     //waterBillLink.click()          → triggers the new tab
+                     //Promise.all() returns results in the same order as the promises.
+                 ]);    
+         
+
+          // Promise concepts 
+          await newPage.locator("//button[contains(@class,'_15qf _2qE6')]").click();
+          await newPage.waitForTimeout(3000);
+          await newPage.close();
+          await page.waitForTimeout(3000);
+
+          await page.locator("//div[normalize-space()='Paytm for Business']").click();
+          
+
+
+
+     })
+
+
+     test("Radio button handling" ,  async ({page})=>{
+
+          await page.goto("https://paytm.com/recharge");
+          await page.waitForTimeout(3000);
+          //await page.locator("//input[@id='prepaid']").check()
+          await page.waitForTimeout(3000);
+          await page.locator("//label[@class='_3M_F']").click();
+          await page.waitForTimeout(3000);
+     })
