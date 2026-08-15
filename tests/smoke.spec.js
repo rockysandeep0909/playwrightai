@@ -1,9 +1,12 @@
 import {test,expect} from '@playwright/test';
 import 'dotenv/config';
+import logger from '../utils/logger'
 
-test("TC 01: Our first playwright test" ,  async ({page})=>{
+test.only("TC 01: Our first playwright test" ,  async ({page})=>{
 
      await page.goto(process.env.BaseURL);
+     console.log("our first log for our first playwright test")
+     logger.info("our first log for our first playwright test")
      await expect(page).toHaveTitle("Swag Labs");
      
      await page.locator("//input[@placeholder='Username']").fill(process.env.user_name);
@@ -12,6 +15,7 @@ test("TC 01: Our first playwright test" ,  async ({page})=>{
      await page.locator("//input[@id='login-button']").click();
      //await page.waitForTimeout(3000);
      await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html");
+     logger.warn("This is a warning ")
      
      // ctrl + Shift + k -- delete the line
   
@@ -20,13 +24,14 @@ test("TC 01: Our first playwright test" ,  async ({page})=>{
 
      await expect(page.locator("//span[@data-test='title']")).toHaveText("Products");
     
-
+     logger.info("TC 01 is successfully executed")
+     logger.silly("I am a silly logger")
 
 
 })
 
 
-test("TC 02: Dropdown validation in saucedemo website" ,  async ({page})=>{
+test.only("TC 02: Dropdown validation in saucedemo website" ,  async ({page})=>{
 
      await page.goto("https://www.saucedemo.com/");
      await expect(page).toHaveTitle("Swag Labs");
@@ -51,7 +56,8 @@ test("TC 02: Dropdown validation in saucedemo website" ,  async ({page})=>{
 
      await page.locator("//button[@id='add-to-cart-sauce-labs-backpack']").click();
      await expect(page.locator("//span[@class='shopping_cart_badge']")).toHaveText("1");
-
+     logger.info("TC 02 got executed successfully")
+     logger.error("This is an error message")
 })
 
 
@@ -362,7 +368,7 @@ test("http authentication " ,  async ({browser})=>{
      })
 
 
-     test.only("drag and drop", async ({page})=>{
+     test("drag and drop", async ({page})=>{
 
           await page.goto(process.env.demoqabaseurl);
           await page.pause();
