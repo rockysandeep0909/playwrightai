@@ -1,13 +1,14 @@
 import {test,expect} from '@playwright/test';
+import 'dotenv/config';
 
 test("TC 01: Our first playwright test" ,  async ({page})=>{
 
-     await page.goto("https://www.saucedemo.com/");
+     await page.goto(process.env.BaseURL);
      await expect(page).toHaveTitle("Swag Labs");
      
-     await page.locator("//input[@placeholder='Username']").fill("standard_user");
-     await expect(page.locator("//input[@placeholder='Username']")).toHaveValue("standard_user");
-     await page.locator("//input[@placeholder='Password']").fill("secret_sauce");
+     await page.locator("//input[@placeholder='Username']").fill(process.env.user_name);
+     await expect(page.locator("//input[@placeholder='Username']")).toHaveValue(process.env.user_name);
+     await page.locator("//input[@placeholder='Password']").fill(process.env.password);
      await page.locator("//input[@id='login-button']").click();
      //await page.waitForTimeout(3000);
      await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html");
@@ -361,12 +362,13 @@ test("http authentication " ,  async ({browser})=>{
      })
 
 
-     test("Radio button handling" ,  async ({page})=>{
+     test.only("drag and drop", async ({page})=>{
 
-          await page.goto("https://paytm.com/recharge");
-          await page.waitForTimeout(3000);
-          //await page.locator("//input[@id='prepaid']").check()
-          await page.waitForTimeout(3000);
-          await page.locator("//label[@class='_3M_F']").click();
+          await page.goto(process.env.demoqabaseurl);
+          await page.pause();
+          const source=await page.locator("#draggable");
+          const target=await page.locator("//p[text()='Drop Here']");
+          await source.dragTo(target);
           await page.waitForTimeout(3000);
      })
+
