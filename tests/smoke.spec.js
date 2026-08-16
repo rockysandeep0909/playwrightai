@@ -2,6 +2,7 @@ import {test,expect} from '@playwright/test';
 import 'dotenv/config';
 import logger from '../utils/logger'
 
+// Test basic login functionality with username, password, and verify successful navigation to inventory page
 test("TC 01: Our first playwright test" ,  async ({page})=>{
 
      await page.goto(process.env.BaseURL);
@@ -31,6 +32,7 @@ test("TC 01: Our first playwright test" ,  async ({page})=>{
 })
 
 
+// Test product sorting dropdown functionality with different sort options (lohi, hilo, az, za)
 test("TC 02: Dropdown validation in saucedemo website" ,  async ({page})=>{
 
      await page.goto("https://www.saucedemo.com/");
@@ -61,6 +63,7 @@ test("TC 02: Dropdown validation in saucedemo website" ,  async ({page})=>{
 })
 
 
+// Test browser navigation methods (goBack, goForward, reload) on Playwright docs
 test("TC 03: Navigation methods in paytm website" ,  async ({page})=>{
 
      await page.goto("https://playwright.dev/");
@@ -86,6 +89,7 @@ test("TC 03: Navigation methods in paytm website" ,  async ({page})=>{
 // })
 
 
+// Test creating browser context and page manually to login and verify inventory page
 test("TC 04: test run using browser fixuture" ,  async ({browser})=>{
      const context=await browser.newContext();
      const page =await context.newPage();
@@ -112,6 +116,7 @@ test("TC 04: test run using browser fixuture" ,  async ({browser})=>{
 })
 
 
+// Test file upload functionality by selecting a file and submitting the form
 test("TC 05: File upload", async ({page})=>{
 
     await page.goto("https://the-internet.herokuapp.com/upload");
@@ -128,8 +133,7 @@ test("TC 05: File upload", async ({page})=>{
 })
 
 
-//visual testing 
-
+// Test visual regression on Instagram page by capturing and comparing screenshot
 test("TC 06: Visual testing in instagram" ,  async ({page})=>{
      await page.goto("https://www.instagram.com/");
      await expect(page).toHaveTitle("Instagram");
@@ -139,6 +143,7 @@ test("TC 06: Visual testing in instagram" ,  async ({page})=>{
 })
 
 
+// Test visual regression on Playwright docs page by capturing and comparing screenshot
 test("TC 07: Visual testing in playwright page" ,  async ({page})=>{
      await page.goto("https://playwright.dev/");
      
@@ -148,8 +153,7 @@ test("TC 07: Visual testing in playwright page" ,  async ({page})=>{
 })
 
 
-// handle alerts in playwright 
-
+// Test handling JavaScript alert dialogs by accepting them
 test("TC 08: Hanlding simple alert in playwright ", async ({page})=>{
 
      await page.goto("https://the-internet.herokuapp.com/javascript_alerts");
@@ -166,6 +170,7 @@ test("TC 08: Hanlding simple alert in playwright ", async ({page})=>{
 })
 
 
+// Test handling JavaScript confirm dialogs by dismissing them
 test("TC 09: Handling confirm box --- dismiss ", async ({page})=>{
 
      await page.goto("https://the-internet.herokuapp.com/javascript_alerts");
@@ -182,6 +187,7 @@ test("TC 09: Handling confirm box --- dismiss ", async ({page})=>{
 })
 
 
+// Test handling JavaScript prompt dialogs by accepting with user input text
 test("TC 10: Handling confirm box --- prompt alert ", async ({page})=>{
 
      await page.goto("https://the-internet.herokuapp.com/javascript_alerts");
@@ -203,8 +209,7 @@ test("TC 10: Handling confirm box --- prompt alert ", async ({page})=>{
      await page.waitForTimeout(5000);
 })
 
-//handling webtables in playwright
-
+// Test web table iteration by counting rows and logging each row's text content
 test("TC 11: Handling webtables in playwright ", async ({page})=>{
      await page.goto("https://www.w3schools.com/html/html_tables.asp");
      await page.waitForTimeout(3000);
@@ -219,8 +224,7 @@ test("TC 11: Handling webtables in playwright ", async ({page})=>{
 })
 
 
-// handling iframes in playwright
-
+// Test iframe handling by locating and clicking elements inside iframes
 test("TC 12: Handling iframes in playwright ", async ({page})=>{
      await page.goto("https://www.w3schools.com/html/html_iframe.asp");
      await page.waitForTimeout(3000);
@@ -234,6 +238,7 @@ test("TC 12: Handling iframes in playwright ", async ({page})=>{
 })
 
 
+// Test keyboard interactions like Tab, Backspace, and Enter key presses during login
 test("TC 13: Keyboard events" ,  async ({page})=>{
 
      await page.goto("https://www.saucedemo.com/");
@@ -249,6 +254,7 @@ test("TC 13: Keyboard events" ,  async ({page})=>{
 })
 
 
+// Test auto-suggestive dropdown by searching and selecting matching suggestion
 test("TC 14: auto suggestive dropdown" ,  async ({page})=>{
 
      await page.goto("https://www.wikipedia.org/");
@@ -277,6 +283,7 @@ test("TC 14: auto suggestive dropdown" ,  async ({page})=>{
 })
 
 
+// Test vertical scrolling and CSS selectors for element location during login
 test("TC 15: Handling scroll down in playwright and using css selectors" ,  async ({page})=>{
 
      await page.goto("https://www.saucedemo.com/");
@@ -293,6 +300,7 @@ test("TC 15: Handling scroll down in playwright and using css selectors" ,  asyn
      await page.waitForTimeout(3000);
 })
 
+// Test horizontal scrolling on wide page content and verify scroll position changes
 test("TC 16: Horizontal scroll from left to right" ,  async ({page})=>{
 
      await page.goto("data:text/html,<html><body style='margin:0'><div style='width:2000px;height:200px;background:linear-gradient(to right, red, blue);'></div></body></html>");
@@ -307,6 +315,7 @@ test("TC 16: Horizontal scroll from left to right" ,  async ({page})=>{
 
 
 
+// Test mouse hover action on menu items to trigger dropdown display
 test("TC 17: mouse hover" ,  async ({page})=>{
 
      await page.goto("https://paytm.com/");
@@ -316,7 +325,8 @@ test("TC 17: mouse hover" ,  async ({page})=>{
 })
 
 
-test("http authentication " ,  async ({browser})=>{
+// Test HTTP basic authentication by creating context with credentials
+test("TC 18: http authentication " ,  async ({browser})=>{
 
      const context=await browser.newContext({
           httpCredentials:{
@@ -333,7 +343,8 @@ test("http authentication " ,  async ({browser})=>{
      });
 
 
-     test("Multiple tabs handling" ,  async ({browser})=>{
+     // Test handling multiple browser tabs by opening new tab and switching between them
+     test("TC 19: Multiple tabs handling" ,  async ({browser})=>{
 
           const context=await browser.newContext();
           const page=await context.newPage();
@@ -368,7 +379,8 @@ test("http authentication " ,  async ({browser})=>{
      })
 
 
-     test("drag and drop", async ({page})=>{
+     // Test drag and drop functionality by dragging source element to target location
+     test("TC 20: drag and drop", async ({page})=>{
 
           await page.goto(process.env.demoqabaseurl);
           await page.pause();
@@ -378,7 +390,8 @@ test("http authentication " ,  async ({browser})=>{
           await page.waitForTimeout(3000);
      })
 
-test.only("Playwright inbuilt locators", async ({page})=>{
+// Test various Playwright built-in locators (getByTitle, getByPlaceholder, getByRole, getByTestId, getByText)
+test.only("TC 21: Playwright inbuilt locators", async ({page})=>{
 
       
       await page.goto(process.env.BaseURL)
