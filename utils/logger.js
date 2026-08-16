@@ -8,7 +8,7 @@ const logFormat = format.printf(({ level, message, timestamp, stack }) => {
 
 
 const logger = createLogger({
-  level: process.env.LOG_LEVEL || 'error',
+  level: process.env.LOG_LEVEL || 'info',
   format: format.combine(
     format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
     format.errors({ stack: true }),

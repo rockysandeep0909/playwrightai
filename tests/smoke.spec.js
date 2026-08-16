@@ -2,7 +2,7 @@ import {test,expect} from '@playwright/test';
 import 'dotenv/config';
 import logger from '../utils/logger'
 
-test.only("TC 01: Our first playwright test" ,  async ({page})=>{
+test("TC 01: Our first playwright test" ,  async ({page})=>{
 
      await page.goto(process.env.BaseURL);
      console.log("our first log for our first playwright test")
@@ -31,7 +31,7 @@ test.only("TC 01: Our first playwright test" ,  async ({page})=>{
 })
 
 
-test.only("TC 02: Dropdown validation in saucedemo website" ,  async ({page})=>{
+test("TC 02: Dropdown validation in saucedemo website" ,  async ({page})=>{
 
      await page.goto("https://www.saucedemo.com/");
      await expect(page).toHaveTitle("Swag Labs");
@@ -378,3 +378,35 @@ test("http authentication " ,  async ({browser})=>{
           await page.waitForTimeout(3000);
      })
 
+test.only("Playwright inbuilt locators", async ({page})=>{
+
+      
+      await page.goto(process.env.BaseURL)
+   
+      logger.info("we are using playwright inbuilt locators")
+      logger.info("-------getByTitle------")
+      await expect(page.getByTitle("Swag Labs")).toBeVisible();
+
+
+      logger.info("------ getbyplaceholder-----")
+
+      await page.getByPlaceholder("Username").fill(process.env.user_name);
+      await page.getByPlaceholder("Password").fill(process.env.password);
+
+
+     
+     logger.info("------- getByRole------")
+     await page.getByRole('button',{name:'Login'}).click();
+      await page.waitForTimeout(5000);
+     
+     logger.info("------ getby test id-------")
+     await page.getByTestId("add-to-cart-sauce-labs-backpack").click();
+     await page.waitForTimeout(5000);
+     //await page.getByTestId("shopping-cart-link").click();
+
+     logger.info("------ getbyText------")
+     await expect(page.getByText("Products")).toBeVisible();
+
+     //await page.getByLabel('Password').fill('secret');
+     //await page.getByAltText('playwright logo').click();
+})

@@ -13,3 +13,21 @@
 2026-08-15 12:17:33 [INFO]: TC 01 is successfully executed
 2026-08-15 12:17:48 [INFO]: TC 02 got executed successfully
 2026-08-15 12:21:33 [ERROR]: This is an error message
+2026-08-16 10:33:59 [INFO]: we are using playwright inbuilt locators
+2026-08-16 10:33:59 [INFO]: ------ getbyplaceholder-----
+2026-08-16 10:42:52 [INFO]: we are using playwright inbuilt locators
+2026-08-16 10:42:52 [INFO]: ------ getbyplaceholder-----
+2026-08-16 10:42:53 [INFO]: ------- getByRole------
+2026-08-16 10:49:31 [INFO]: we are using playwright inbuilt locators
+2026-08-16 10:49:31 [INFO]: ------ getbyplaceholder-----
+2026-08-16 10:49:31 [INFO]: ------- getByRole------
+2026-08-16 10:49:36 [INFO]: ------ getby test id-------
+2026-08-16 11:00:45 [INFO]: we are using playwright inbuilt locators
+2026-08-16 11:00:45 [INFO]: ------ getbyplaceholder-----
+2026-08-16 11:00:45 [INFO]: ------- getByRole------
+2026-08-16 11:00:50 [INFO]: ------ getby test id-------
+2026-08-16 11:06:03 [INFO]: we are using playwright inbuilt locators
+2026-08-16 11:06:03 [INFO]: ------ getbyplaceholder-----
+2026-08-16 11:06:03 [INFO]: ------- getByRole------
+2026-08-16 11:06:08 [INFO]: ------ getby test id-------
+2026-08-16 11:06:14 [INFO]: ------ getbyText------
