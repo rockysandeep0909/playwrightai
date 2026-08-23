@@ -18,7 +18,7 @@ test.afterAll(()=>{
 })
 
 // Test basic login functionality with username, password, and verify successful navigation to inventory page
-test.only("TC 01: Our first playwright test" ,  async ({page})=>{
+test.only("@smoke TC 01: Our first playwright test" ,  async ({page})=>{
 
      await page.goto(process.env.BaseURL);
      console.log("our first log for our first playwright test")
