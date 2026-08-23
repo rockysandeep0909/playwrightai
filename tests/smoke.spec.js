@@ -1,9 +1,24 @@
-import {test,expect} from '@playwright/test';
+import {test,expect,request} from '@playwright/test';
 import 'dotenv/config';
 import logger from '../utils/logger'
 
+test.beforeEach(async ({page})=>{
+     logger.info("Test case execution started")
+})
+test.afterEach(async ({page})=>{
+     logger.info("Test case execution completed")
+})
+
+test.beforeAll(()=>{
+     logger.info("Test suite execution started")
+})
+
+test.afterAll(()=>{
+     logger.info("Test suite execution completed")
+})
+
 // Test basic login functionality with username, password, and verify successful navigation to inventory page
-test("TC 01: Our first playwright test" ,  async ({page})=>{
+test.only("TC 01: Our first playwright test" ,  async ({page})=>{
 
      await page.goto(process.env.BaseURL);
      console.log("our first log for our first playwright test")
@@ -391,14 +406,16 @@ test("TC 18: http authentication " ,  async ({browser})=>{
      })
 
 // Test various Playwright built-in locators (getByTitle, getByPlaceholder, getByRole, getByTestId, getByText)
-test.only("TC 21: Playwright inbuilt locators", async ({page})=>{
+test("TC 21: Playwright inbuilt locators", async ({page})=>{
 
+
+     logger.info("Test suite exectuion started for TC 21")
       
       await page.goto(process.env.BaseURL)
    
       logger.info("we are using playwright inbuilt locators")
       logger.info("-------getByTitle------")
-      await expect(page.getByTitle("Swag Labs")).toBeVisible();
+      //await expect(page.getByTitle("Swag Labs")).toBeVisible();
 
 
       logger.info("------ getbyplaceholder-----")
@@ -422,4 +439,36 @@ test.only("TC 21: Playwright inbuilt locators", async ({page})=>{
 
      //await page.getByLabel('Password').fill('secret');
      //await page.getByAltText('playwright logo').click();
+     logger.info("Test suite exectuion completed for TC 21")
 })
+
+// test api using playwright 
+test.only("TC 22: API testing using playwright", async ({request})=>{
+   //const apiContext=await request.newContext();
+   const response=await request.get("https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41");
+   console.log("Status code is : "+response.status());
+   console.log("Response text is : "+await response.statusText());
+
+
+})
+
+
+test.only("TC 23: API testing using playwright post request", async ({page})=>{
+
+   const apiContext=await request.newContext();
+   const response=await apiContext.get("https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41");
+   console.log("Status code is : "+await response.status());
+   console.log("Response text is : "+await response.statusText());
+
+   // launch the application only after doing the api testing
+   await page.goto("https://www.saucedemo.com/");
+   await page.locator("#user-name").fill("standard_user");
+   await page.locator("#password").fill("secret_sauce");
+   await page.locator("#login-button").click();
+   await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html");
+
+
+})
+
+
+

@@ -31,3 +31,86 @@
 2026-08-16 11:06:03 [INFO]: ------- getByRole------
 2026-08-16 11:06:08 [INFO]: ------ getby test id-------
 2026-08-16 11:06:14 [INFO]: ------ getbyText------
+2026-08-22 11:05:29 [INFO]: our first log for our first playwright test
+2026-08-22 11:05:29 [WARN]: This is a warning 
+2026-08-22 11:05:29 [INFO]: TC 01 is successfully executed
+2026-08-22 11:05:48 [INFO]: TC 02 got executed successfully
+2026-08-22 11:05:48 [ERROR]: This is an error message
+2026-08-22 11:14:53 [INFO]: we are using playwright inbuilt locators
+2026-08-22 11:14:53 [INFO]: -------getByTitle------
+2026-08-22 11:20:43 [INFO]: Test suite exectuion started
+2026-08-22 11:20:43 [INFO]: we are using playwright inbuilt locators
+2026-08-22 11:20:43 [INFO]: -------getByTitle------
+2026-08-22 11:20:59 [INFO]: Test suite exectuion started
+2026-08-22 11:21:00 [INFO]: we are using playwright inbuilt locators
+2026-08-22 11:21:00 [INFO]: -------getByTitle------
+2026-08-22 11:21:00 [INFO]: ------ getbyplaceholder-----
+2026-08-22 11:21:00 [INFO]: ------- getByRole------
+2026-08-22 11:21:07 [INFO]: ------ getby test id-------
+2026-08-22 11:21:14 [INFO]: ------ getbyText------
+2026-08-22 11:21:14 [INFO]: Test suite exectuion completed
+2026-08-22 11:21:51 [INFO]: Test suite exectuion started for TC 21
+2026-08-22 11:21:52 [INFO]: we are using playwright inbuilt locators
+2026-08-22 11:21:52 [INFO]: -------getByTitle------
+2026-08-22 11:21:52 [INFO]: ------ getbyplaceholder-----
+2026-08-22 11:21:52 [INFO]: ------- getByRole------
+2026-08-22 11:21:58 [INFO]: ------ getby test id-------
+2026-08-22 11:22:05 [INFO]: ------ getbyText------
+2026-08-22 11:22:05 [INFO]: Test suite exectuion completed for TC 21
+2026-08-22 11:22:59 [INFO]: Test suite execution started
+2026-08-22 11:23:01 [INFO]: our first log for our first playwright test
+2026-08-22 11:23:03 [WARN]: This is a warning 
+2026-08-22 11:23:03 [INFO]: TC 01 is successfully executed
+2026-08-22 11:23:08 [INFO]: Test suite execution completed
+2026-08-22 11:23:50 [INFO]: Test suite execution started
+2026-08-22 11:23:50 [INFO]: Test suite execution started
+2026-08-22 11:23:50 [INFO]: Test suite execution started
+2026-08-22 11:23:51 [INFO]: Test suite execution completed
+2026-08-22 11:23:53 [INFO]: our first log for our first playwright test
+2026-08-22 11:23:54 [WARN]: This is a warning 
+2026-08-22 11:23:54 [INFO]: TC 01 is successfully executed
+2026-08-22 11:23:54 [INFO]: Test suite execution completed
+2026-08-22 11:23:55 [INFO]: Test suite execution completed
+2026-08-22 11:25:22 [INFO]: Test suite execution started
+2026-08-22 11:25:24 [INFO]: our first log for our first playwright test
+2026-08-22 11:25:25 [WARN]: This is a warning 
+2026-08-22 11:25:25 [INFO]: TC 01 is successfully executed
+2026-08-22 11:25:27 [INFO]: Test suite execution completed
+2026-08-22 11:26:35 [INFO]: Test suite execution started
+2026-08-22 11:26:36 [INFO]: Test case execution started
+2026-08-22 11:26:37 [INFO]: our first log for our first playwright test
+2026-08-22 11:26:37 [WARN]: This is a warning 
+2026-08-22 11:26:37 [INFO]: TC 01 is successfully executed
+2026-08-22 11:26:37 [INFO]: Test case execution completed
+2026-08-22 11:26:38 [INFO]: Test case execution started
+2026-08-22 11:26:39 [INFO]: Test case execution completed
+2026-08-22 11:26:40 [INFO]: Test case execution started
+2026-08-22 11:26:41 [INFO]: Test case execution completed
+2026-08-22 11:26:41 [INFO]: Test suite execution completed
+2026-08-23 10:17:03 [INFO]: Test suite execution started
+2026-08-23 10:17:07 [INFO]: Test case execution started
+2026-08-23 10:17:07 [INFO]: Test case execution completed
+2026-08-23 10:17:09 [INFO]: Test suite execution completed
+2026-08-23 10:19:14 [INFO]: Test suite execution started
+2026-08-23 10:19:15 [INFO]: Test case execution started
+2026-08-23 10:19:22 [INFO]: Test case execution completed
+2026-08-23 10:19:22 [INFO]: Test suite execution completed
+2026-08-23 11:06:16 [INFO]: Going to login page
+2026-08-23 11:09:02 [INFO]: Going to login page
+2026-08-23 11:09:46 [INFO]: Going to login page
+2026-08-23 11:09:54 [INFO]: Login successful
+2026-08-23 11:16:53 [INFO]: Going to login page
+2026-08-23 11:16:54 [INFO]: Login successful
+2026-08-23 11:16:54 [INFO]: Getting inventory items count
+2026-08-23 11:42:03 [INFO]: Going to login page
+2026-08-23 11:42:05 [INFO]: Login successful
+2026-08-23 11:42:05 [INFO]: Getting inventory items count
+2026-08-23 11:42:05 [INFO]: Clicking on checkout button
+2026-08-23 11:43:43 [INFO]: Going to login page
+2026-08-23 11:43:44 [INFO]: Login successful
+2026-08-23 11:43:44 [INFO]: Getting inventory items count
+2026-08-23 11:43:44 [INFO]: Clicking on checkout button
+2026-08-23 11:44:32 [INFO]: Going to login page
+2026-08-23 11:44:33 [INFO]: Login successful
+2026-08-23 11:44:33 [INFO]: Getting inventory items count
+2026-08-23 11:44:33 [INFO]: Clicking on checkout button
