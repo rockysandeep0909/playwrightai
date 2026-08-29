@@ -6,6 +6,7 @@ export class CheckoutComplete{
         this.completeHeader=page.locator(".complete-header");
     }
 
+
     // Region 2
     async getCompleteHeaderText(){
         return await this.completeHeader.textContent();
@@ -21,5 +22,9 @@ export class CheckoutComplete{
         }
     }
 
-    
+
+    async verifyCheckoutCompletePage(){
+        await expect(this.page).toHaveURL("https://www.saucedemo.com/checkout-complete.html");
+    }
+
 }

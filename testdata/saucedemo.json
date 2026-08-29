@@ -1,0 +1,19 @@
+{
+
+   "validUser":{
+    "username":"standard_user",
+    "password":"secret_sauce"
+   },
+
+   "lockedoutUser":{
+    "username":"locked_out_user",
+    "password":"secret_sauce"
+   },
+
+   "url":{
+    "qa":"https://www.saucedemo.com/",
+    "staging":"https://www.saucedemo.com/"
+   }
+
+
+}
