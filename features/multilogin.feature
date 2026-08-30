@@ -1,5 +1,6 @@
 Feature: Login with multiple users
 
+@multitestdata
 Scenario Outline: Successful Login using valid Credential
     Given I am in login page of saucedemo
     When i enter username "<username>" and password "<password>"
@@ -8,6 +9,7 @@ Scenario Outline: Successful Login using valid Credential
 
     Examples:
     |username|password|
-    |standard_user|secret_suace|
-    |locked_out_user|secret_sauce|
+    |standard_user|secret_sauce|
     |problem_user|secret_sauce|
+    |performance_glitch_user|secret_sauce|
+    |locked_out_user|secret_sauce|

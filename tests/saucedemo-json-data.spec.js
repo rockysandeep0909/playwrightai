@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 
 import sauceDemoData from '../testdata/saucedemo.json'
 
-test('logs in to Sauce Demo with JSON test data', async ({ page }) => {
+test('@regression logs in to Sauce Demo with JSON test data', async ({ page }) => {
   await page.goto(sauceDemoData.url.staging);
 
   await page.getByTestId('username').fill(sauceDemoData.validUser.username);

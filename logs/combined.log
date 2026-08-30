@@ -121,3 +121,52 @@
 2026-08-23 11:56:51 [INFO]: TC 01 is successfully executed
 2026-08-23 11:56:51 [INFO]: Test case execution completed
 2026-08-23 11:56:51 [INFO]: Test suite execution completed
+2026-08-30 11:12:24 [INFO]: Test suite execution started
+2026-08-30 11:12:27 [INFO]: Test case execution started
+2026-08-30 11:12:28 [INFO]: our first log for our first playwright test
+2026-08-30 11:12:28 [WARN]: This is a warning 
+2026-08-30 11:12:28 [INFO]: TC 01 is successfully executed
+2026-08-30 11:12:28 [INFO]: Test case execution completed
+2026-08-30 11:12:30 [INFO]: Test suite execution completed
+2026-08-30 11:21:41 [INFO]: Going to login page
+2026-08-30 11:21:42 [INFO]: Login successful
+2026-08-30 11:21:42 [INFO]: Getting inventory items count
+2026-08-30 11:21:42 [INFO]: Clicking on checkout button
+2026-08-30 11:21:45 [INFO]: Going to login page
+2026-08-30 11:21:47 [INFO]: Login successful
+2026-08-30 11:21:47 [INFO]: Getting inventory items count
+2026-08-30 11:21:47 [INFO]: Clicking on checkout button
+2026-08-30 11:21:50 [INFO]: Test suite execution started
+2026-08-30 11:21:53 [INFO]: Test case execution started
+2026-08-30 11:21:54 [INFO]: Test case execution completed
+2026-08-30 11:21:55 [INFO]: Test case execution started
+2026-08-30 11:21:57 [INFO]: Test case execution completed
+2026-08-30 11:21:57 [INFO]: Test suite execution completed
+2026-08-30 11:23:45 [INFO]: Test suite execution started
+2026-08-30 11:23:47 [INFO]: Test case execution started
+2026-08-30 11:23:47 [INFO]: our first log for our first playwright test
+2026-08-30 11:23:48 [WARN]: This is a warning 
+2026-08-30 11:23:48 [INFO]: TC 01 is successfully executed
+2026-08-30 11:23:48 [INFO]: Test case execution completed
+2026-08-30 11:23:49 [INFO]: Test suite execution completed
+2026-08-30 11:24:08 [INFO]: Going to login page
+2026-08-30 11:24:09 [INFO]: Login successful
+2026-08-30 11:24:09 [INFO]: Getting inventory items count
+2026-08-30 11:24:10 [INFO]: Clicking on checkout button
+2026-08-30 11:24:13 [INFO]: Going to login page
+2026-08-30 11:24:15 [INFO]: Login successful
+2026-08-30 11:24:15 [INFO]: Getting inventory items count
+2026-08-30 11:24:15 [INFO]: Clicking on checkout button
+2026-08-30 11:24:18 [INFO]: Test suite execution started
+2026-08-30 11:24:20 [INFO]: Test case execution started
+2026-08-30 11:24:20 [INFO]: Test case execution completed
+2026-08-30 11:24:21 [INFO]: Test case execution started
+2026-08-30 11:24:23 [INFO]: Test case execution completed
+2026-08-30 11:24:23 [INFO]: Test suite execution completed
+2026-08-30 12:10:58 [INFO]: Test suite execution started
+2026-08-30 12:10:59 [INFO]: Test case execution started
+2026-08-30 12:11:02 [INFO]: our first log for our first playwright test
+2026-08-30 12:11:03 [WARN]: This is a warning 
+2026-08-30 12:11:03 [INFO]: TC 01 is successfully executed
+2026-08-30 12:11:03 [INFO]: Test case execution completed
+2026-08-30 12:11:03 [INFO]: Test suite execution completed

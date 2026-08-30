@@ -15,21 +15,21 @@ async goToLoginPageURL(){
      await this.page.goto(process.env.BaseURL);
 }
 
-async enterUsername(){
-    await this.username.fill(process.env.user_name)
+async enterUsername(username){
+    await this.username.fill(username)
 }
 
-async enterPassword(){
-    await this.password.fill(process.env.password)
+async enterPassword(password){
+    await this.password.fill(password)
 }
 
 async clickLoginButton(){
     await this.loginButton.click();
 }
 
-async validLogin(){
-    await this.username.fill(process.env.user_name)
-    await this.password.fill(process.env.password)
+async validLogin(username = process.env.user_name, password = process.env.password){
+    await this.username.fill(username)
+    await this.password.fill(password)
     await this.loginButton.click();
 }
 
