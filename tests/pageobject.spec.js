@@ -13,7 +13,7 @@ import {CheckoutComplete} from "../POM/CheckoutComplete";
 
 
 
-test.only("TC 01: Our first playwright test" ,  async ({page})=>{
+test("TC 01: Our first playwright test" ,  async ({page})=>{
     // initialize the page objects 
      let loginpage=new LoginPage(page);
      let inventorypage=new InventoryPage(page);

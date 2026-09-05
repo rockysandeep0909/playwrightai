@@ -1,6 +1,10 @@
 import {test,expect,request} from '@playwright/test';
 import 'dotenv/config';
-import logger from '../utils/logger'
+import logger from '../utils/logger';
+import sauceDemoData from '../testdata/saucedemo.json';
+
+test.describe.configure({mode:'parallel'});
+
 
 test.beforeEach(async ({page})=>{
      logger.info("Test case execution started")
@@ -443,7 +447,7 @@ test("TC 21: Playwright inbuilt locators", async ({page})=>{
 })
 
 // test api using playwright 
-test.only("TC 22: API testing using playwright", async ({request})=>{
+test("TC 22: API testing using playwright", async ({request})=>{
    //const apiContext=await request.newContext();
    const response=await request.get("https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41");
    console.log("Status code is : "+response.status());
@@ -453,7 +457,7 @@ test.only("TC 22: API testing using playwright", async ({request})=>{
 })
 
 
-test.only("TC 23: API testing using playwright post request", async ({page})=>{
+test("TC 23: API testing using playwright post request", async ({page})=>{
 
    const apiContext=await request.newContext();
    const response=await apiContext.get("https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41");
@@ -469,6 +473,19 @@ test.only("TC 23: API testing using playwright post request", async ({page})=>{
 
 
 })
+
+
+test('@regression logs in to Sauce Demo with JSON test data', async ({ page }) => {
+  await page.goto(sauceDemoData.url.staging);
+
+  await page.getByTestId('username').fill(sauceDemoData.validUser.username);
+  await page.getByTestId('password').fill(sauceDemoData.validUser.password);
+  await page.getByTestId('login-button').click();
+
+  await expect(page).toHaveURL(/inventory\.html/);
+  await expect(page.getByTestId('title')).toHaveText('Products');
+  await expect(page.getByTestId('inventory-item')).toHaveCount(6);
+});
 
 
 
